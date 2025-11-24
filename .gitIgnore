@@ -1,0 +1,35 @@
+
+--------------------------------#
+### Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+### Virtual environment
+venv/
+env/
+.venv/
+
+### Ignore ALL files inside /data, but keep folder structure with .gitkeep
+data/
+
+### Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+### VSCode settings
+.vscode/
+
+### OS files
+.DS_Store
+Thumbs.db
+
+### Reports
+reports/
+
+### Models
+models/resnet18*
+models/best_model.pth
+
+### Outputs
+outputs/

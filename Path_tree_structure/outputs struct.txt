@@ -1,0 +1,12 @@
+d:/xai-ct-project - Copy/outputs/
+├── checkpoints/
+│   └── best_model.pt
+├── embeddings/
+└── logs/
+    ├── gradcam_samples/
+    │   ├── 14_Jun_radiopaedia_10_85902_3_case12_81_COVID_gradcam.png
+    │   ├── 16_Morozov_study_0032_16_COVID_gradcam.png
+    │   ├── 16_Morozov_study_0112_12_COVID_gradcam.png
+    │   ├── cp015_158_NonCOVID_gradcam.png
+    │   └── Non-Covid (519)_COVID_gradcam.png
+    └── train_log.json

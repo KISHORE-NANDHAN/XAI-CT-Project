@@ -1,0 +1,67 @@
+# ============================================================
+# config/model3d.yaml
+# Minimal-to-complete config for training / evaluating 3D ResNet
+# ============================================================
+seed: 42
+
+data:
+  # Root dir that contains subfolders train/, val/, test/
+  # Each subfolder should contain .npy or .nii.gz volumes.
+  data_dir: "data/ct3d_dataset"
+
+  # optional CSV manifest (relative to project root) with columns:
+  # id, filepath, label  -> filepath can be absolute or relative
+  # If provided, dataset loader will prefer manifest over listing files.
+  manifest: null
+
+model:
+  # model options
+  num_classes: 4
+  pretrained: false
+  # feature dimensionality expected from embedding extractor (used by downstream scripts)
+  embedding_dim: 512
+
+training:
+  # training hyperparams
+  batch_size: 2
+  n_epochs: 20
+  lr: 1e-4
+  weight_decay: 1e-5
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  lr_patience: 3
+  # optimizer specific
+  optimizer: "adamw"
+
+evaluation:
+  batch_size: 2
+  num_workers: 4
+
+logging:
+  # wandb (if you want), will be ignored if wandb not installed or --no-wandb passed
+  wandb:
+    use: false
+    project: "xai-ct-3d"
+    entity: null
+
+io:
+  # save checkpoints here when training
+  workdir: "workdir/3d"
+  # evaluation outputs
+  eval_workdir: "workdir/3d_eval"
+
+augmentation:
+  # placeholder augmentation settings — you can implement these in dataset loader
+  random_flip: true
+  random_crop: false
+  intensity_jitter: false
+
+postproc:
+  # thresholds / post processing used in downstream analysis
+  prob_thresh: 0.5
+  lung_window: [-1000, 400]
+
+debug:
+  max_batches_debug: null   # set small integer for debugging run-throughs
+  dev_mode: false

@@ -1,0 +1,33 @@
+d:/xai-ct-project - Copy/outputs/m5/
+├── checkpoints/
+│   ├── best-before.pth
+│   ├── best.pth
+│   ├── checkpoint_epoch1.pth
+│   ├── checkpoint_epoch10.pth
+│   ├── checkpoint_epoch11.pth
+│   ├── checkpoint_epoch12.pth
+│   ├── checkpoint_epoch13.pth
+│   ├── checkpoint_epoch14.pth
+│   ├── checkpoint_epoch15.pth
+│   ├── checkpoint_epoch16.pth
+│   ├── checkpoint_epoch17.pth
+│   ├── checkpoint_epoch18.pth
+│   ├── checkpoint_epoch19.pth
+│   ├── checkpoint_epoch2.pth
+│   ├── checkpoint_epoch20.pth
+│   ├── checkpoint_epoch3.pth
+│   ├── checkpoint_epoch4.pth
+│   ├── checkpoint_epoch5.pth
+│   ├── checkpoint_epoch6.pth
+│   ├── checkpoint_epoch7.pth
+│   ├── checkpoint_epoch8.pth
+│   ├── checkpoint_epoch9.pth
+│   └── train_summary.json
+├── eval/
+│   ├── roc_multiclass.png
+│   ├── test_embeddings.npy
+│   ├── test_metrics.json
+│   └── test_predictions.csv
+├── training_log.txt
+├── train_val_auc.png
+└── train_val_loss.png

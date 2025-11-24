@@ -1,0 +1,107 @@
+# ============================================
+# XAI-CT PROJECT CONFIGURATION FILE
+# ============================================
+# Controls data paths, preprocessing parameters,
+# dataset splits, augmentations, QC, metadata generation,
+# and output management.
+# ============================================
+
+project:
+  name: "XAI-CT Project"
+  version: "1.0"
+  author: "JAJULA KISHORE NANDHAN"
+  description: "Explainable AI pipeline for COVID-19 CT diagnosis"
+
+paths:
+  raw_data:
+    SARS-CoV2: "data/raw/SARS-COV-2"
+    COVIDx: "data/raw/covidxct_subset"
+    COVID-CT-MD: "data/raw/Covid-19(Multi-class)/"
+  raw_nifti_data:
+    SARS-CoV2: "data/raw_nifti/SARS-COV2"
+    COVIDx: "data/raw_nifti/COVIDx"
+    COVID-CT-MD: "data/raw_nifti/COVID-CT-MD"
+  curated_data: "data/preprocessed"
+  dataset_card: "reports/dataset_card.json"
+  logs: "reports/logs"
+  qc_reports: "reports/qc"
+  figures: "reports/figures"
+  masks: "data/masks"
+
+datasets:
+  active: "SARS-CoV2"  # switch to any dataset in available list
+  available:
+    SARS-CoV2:
+      source: "https://www.kaggle.com/datasets/plameneduardo/sarscov2-ctscan-dataset"
+      type: "binary"
+      classes: ["COVID", "non-COVID"]
+    COVIDx:
+      source: "https://www.kaggle.com/datasets/c395fb339f210700ba392d81bf200f766418238c2734e5237b5dd0b6fc724fcb"
+      type: "multiclass"
+      classes: ["COVID", "PNEUMONIA","NORMAL"]
+    COVID-CT-MD:
+      source: "https://github.com/ShahinSHH/COVID-CT-MD"
+      type: "multiclass"
+      classes: ["COVID", "CAP", "non-COVID"]
+
+preprocess:
+  image_size: [224, 224]         # final resized image
+  normalization: true            # scale pixel values to [0, 1]
+  augmentations: true            # apply random transforms
+  hu_window: [-1000, 400]        # HU clipping for CT
+  voxel_spacing: [1.25, 1.25, 2.0]  # used for 3D CT
+  convert_to_grayscale: true
+  save_format: "png"
+  include_metadata: true
+  mask_generation:
+    enable: true
+    method: "unet_pretrained"   # fallback: "otsu"
+    crop_to_lung_bbox: true
+
+augmentations_params:
+  horizontal_flip: true
+  rotation_degrees: 15
+  brightness_range: [0.8, 1.2]
+  contrast_range: [0.8, 1.2]
+  random_crop_percent: 0.9
+  gaussian_noise_std: 0.01
+
+split:
+  method: "stratified"           # "LOCO" for site-aware splits
+  train_ratio: 0.8
+  val_ratio: 0.1
+  test_ratio: 0.1
+  seed: 42
+  site_column: "site"            # used for LOCO splits if available
+
+qc:
+  enable: true
+  metrics: ["mean_intensity", "std_intensity", "histogram", "slice_thickness"]
+  failure_threshold: 0.02        # acceptable failure % for slice thickness
+  max_slice_deviation_mm: 0.5
+  save_figures: true
+
+metadata:
+  include_fields:
+    - file_name
+    - label
+    - label_name
+    - dataset
+    - dimensions
+    - intensity_range
+    - voxel_spacing
+    - acquisition_site
+  anonymize_dicom_tags: true
+  output_file: "metadata.json"
+
+output:
+  save_dataset_card: true
+  save_qc_figures: true
+  save_logs: true
+  dataset_card_path: "reports/dataset_card.json"
+  qc_figures_path: "reports/figures"
+
+logging:
+  level: "INFO"
+  file: "reports/logs/preprocess.log"
+  console: true

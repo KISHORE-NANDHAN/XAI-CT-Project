@@ -1,0 +1,30 @@
+# ============================================================
+# M4 MIL Transformer Training Configuration (Fixed)
+# ============================================================
+
+aggregator:
+  type: transformer       # 'mil' or 'transformer'
+  embed_dim: 2048         # <-- FIXED from 512 to 2048
+  num_classes: 2
+  num_heads: 8            # optionally increase heads for higher dim
+  depth: 2
+  mlp_ratio: 2.0
+  dropout: 0.1
+  max_slices: 256
+  hidden_dim: 512         # half of 2048 is a good rule of thumb
+
+train:
+  epochs: 30
+  lr: 1.0e-4
+  label_smoothing: 0.05
+  weight_decay: 1.0e-5
+  scheduler: cosine
+  warmup_epochs: 2
+
+batch_size: 4
+inference_batch: 8
+top_k: 5
+
+output:
+  checkpoints_dir: outputs/m4/checkpoints
+  logs_dir: outputs/m4/logs

@@ -1,0 +1,46 @@
+# m8_config.yaml
+# Final working configuration for M8
+
+m6:
+  out_dir: "outputs/m6"
+  manifest: "outputs/m6/fused_manifest.csv"
+  embeddings: "outputs/m6/fused_embeddings.npy"
+  fusion_head: "outputs/m6/fusion_head.joblib"
+  enhanced_manifest: "outputs/m6/results/fused_manifest_enhanced.csv"   # <-- REQUIRED
+
+shap:
+  out_dir: "outputs/m8/shap"
+  background_samples: "outputs/m8/shap/background_samples.npy"
+  shap_values: "outputs/m8/shap/shap_values.npy"
+  shap_summary_csv: "outputs/m8/shap/shap_summary.csv"
+  shap_bar: "outputs/m8/shap/shap_summary_bar.png"
+  shap_beeswarm: "outputs/m8/shap/shap_beeswarm.png"
+
+prototypes:
+  out_dir: "outputs/m8/prototypes"
+  vectors: "outputs/m8/prototypes/prototype_vectors.npy"
+  metadata: "outputs/m8/prototypes/prototype_metadata.json"
+  tiles_dir: "outputs/m8/prototypes/prototype_tiles"
+
+m8:
+  out_dir: "outputs/m8"
+  report_pdf: "outputs/m8/m8_report.pdf"
+
+params:
+  shap:
+    method: "auto"
+    kernel_nsamples: 200
+    subset_for_quick: 128
+
+  prototypes:
+    per_class: 5
+    method: "kmeans"
+    k_nearest: 3
+
+  paths:
+    img_root: "outputs/m7/ct3d_dataset/attention_heatmaps"
+    cam_root: "outputs/m7/ct3d_dataset/attention_heatmaps"   # <-- REQUIRED
+
+  report:
+    max_proto_tiles: 12
+    top_n_shap: 10

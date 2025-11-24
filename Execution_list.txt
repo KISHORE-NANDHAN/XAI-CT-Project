@@ -1,0 +1,136 @@
+scripts/data_preprocessing.py
+
+scriptsloco_split.py
+
+conversion_scripts/png_to_nifti.py
+
+scripts/preprocess.py
+
+
+main_train_slice.py
+
+scripts/gradcam_check.py
+
+python scripts/extract_embeddings.py 
+  --ckpt "outputs/checkpoints/best_model.pt" 
+  --preprocessed_root data/preprocessed 
+  --out_root data/mil 
+  --device cuda
+
+
+ python scripts/train_mil.py --config config/mil.yaml --device cuda
+
+python scripts/extract_attention.py \
+  --cfg config/mil.yaml \
+  --ckpt outputs/m4/checkpoints/best_model.pt \
+  --data_root data/mil_prepared/test \
+  --out_file outputs/m4/logs/attention_results.json \
+  --device cuda
+
+
+
+python metrics/visualize_attention_m4.py   --results outputs/m4/logs/attention_results.json   --preprocessed_root data/preprocessed   --out_root outputs/m4/attention_vis   --top_k 5
+
+
+
+
+
+python scripts/fuse_embeddings.py \
+  --m4_emb workdir/m4/embeddings.npy \
+  --m5_emb workdir/3d/test_embeddings.npy \
+  --outdir workdir/fused \
+  --normalize \
+  --mode concat \
+  --save_csv
+
+[or]
+
+python scripts/fuse_embeddings.py \
+  --m4_emb workdir/m4/embeddings.npy \
+  --m5_emb workdir/3d/test_embeddings.npy \
+  --m4_manifest data/m4_manifest.csv \
+  --m5_manifest data/m5_manifest.csv \
+  --outdir workdir/fused \
+  --normalize \
+  --mode train \
+  --save_csv
+
+
+
+#      M5        #
+python main_train_3d.py --config config/model3d.yaml --workdir outputs/m5/checkpoints
+
+
+
+python main_eval_3d.py --config config/model3d.yaml --checkpoint outputs/m5/checkpoints/best.pth --workdir outputs/m5/eval
+
+
+
+m7
+
+🔥 Train
+python .\Conversion_scrips\prepare_3d_volumes.py `
+  --root "d:/xai-ct-project - Copy/data/ct3d_dataset/train" `
+  --out_root "d:/xai-ct-project - Copy/data/preprocessed_ct3d/train" `
+  --img_size 224 --center -600 --width 1500 --verbose
+
+🔥 Val
+python .\Conversion_scrips\prepare_3d_volumes.py `
+  --root "d:/xai-ct-project - Copy/data/ct3d_dataset/val" `
+  --out_root "d:/xai-ct-project - Copy/data/preprocessed_ct3d/val" `
+  --img_size 224 --center -600 --width 1500 --verbose
+
+🔥 Test
+python .\Conversion_scrips\prepare_3d_volumes.py `
+  --root "d:/xai-ct-project - Copy/data/ct3d_dataset/test" `
+  --out_root "d:/xai-ct-project - Copy/data/preprocessed_ct3d/test" `
+  --img_size 224 --center -600 --width 1500 --verbose
+
+
+python .\Conversion_scripts\flatten_preprocessed_ct3d.py `
+    --root "d:/xai-ct-project - Copy/data/preprocessed_ct3d" `
+    --out_root "d:/xai-ct-project - Copy/data/preprocessed_ct3d_flat"
+
+
+python explainability/gradcam_m7.py `
+  --slice_checkpoint "d:/xai-ct-project - Copy/outputs/checkpoints/best_model.pt" `
+  --slice_model_file "d:/xai-ct-project - Copy/models/slice_model.py" `
+  --slice_model_class "get_model" `
+  --slice_model_cfg "{'name':'resnet50','pretrained':False,'num_classes':2}" `
+  --checkpoint3d "d:/xai-ct-project - Copy/outputs/m5/checkpoints/best.pth" `
+  --model_class_file3d "d:/xai-ct-project - Copy/models/resnet3d.py" `
+  --model_class3d "ResNet3D" `
+  --preprocessed_root "d:/xai-ct-project - Copy/data/preprocessed_ct3d" `
+  --out_root "d:/xai-ct-project - Copy/outputs/m7/ct3d_dataset/attention_heatmaps" `
+  --top_k 5 `
+  --device cuda:0
+
+
+
+
+---------------------- M8 ------------------------
+
+python utils_scripts/build_enhanced_manifest.py `
+  --m6_manifest "d:/xai-ct-project - Copy/outputs/m6/fused_manifest.csv" `
+  --m5_csv "d:/xai-ct-project - Copy/outputs/m5/eval/test_predictions.csv" `
+  --m7_manifest "D:\xai-ct-project - Copy\outputs\m7\ct3d_dataset\attention_heatmaps\manifest_all.json" `
+  --dataset_root "d:/xai-ct-project - Copy/data/ct3d_dataset" `
+  --out_dir "d:/xai-ct-project - Copy/outputs/m6/results"
+
+
+python run_m8_pipeline.py
+
+------------------------------- M9 --------------------------------------
+
+python evaluate_all_m9.py --config config/m9.yaml
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+d:/xai-ct-project - Copy/data/mil_prepared/
+├── test/
+│   ├── COVID-CT-MD_CAP/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVID-CT-MD_COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVID-CT-MD_non-COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVIDx_COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVIDx_NORMAL/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVIDx_PNEUMONIA/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── SARS-CoV2_COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   └── SARS-CoV2_non-COVID/
+│       ├── embeddings.npy
+│       └── metadata.json
+├── test_list.json
+├── train/
+│   ├── COVID-CT-MD_CAP/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVID-CT-MD_COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVID-CT-MD_non-COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVIDx_COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVIDx_NORMAL/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVIDx_PNEUMONIA/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── SARS-CoV2_COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   └── SARS-CoV2_non-COVID/
+│       ├── embeddings.npy
+│       └── metadata.json
+├── train_list.json
+├── val/
+│   ├── COVID-CT-MD_CAP/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVID-CT-MD_COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVID-CT-MD_non-COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVIDx_COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVIDx_NORMAL/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── COVIDx_PNEUMONIA/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   ├── SARS-CoV2_COVID/
+│   │   ├── embeddings.npy
+│   │   └── metadata.json
+│   └── SARS-CoV2_non-COVID/
+│       ├── embeddings.npy
+│       └── metadata.json
+└── val_list.json

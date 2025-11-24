@@ -1,0 +1,30 @@
+2025-10-29 15:00:28,434 | INFO | \U0001f680 Starting M1 data curation automation
+2025-10-29 15:00:49,557 | INFO | \U0001f680 Starting preprocessing pipeline for all datasets
+2025-10-29 15:00:53,098 | INFO | generated new fontManager
+2025-10-29 15:00:54,201 | INFO | --- Processing dataset (preprocess): SARS-CoV2
+2025-10-29 15:00:54,220 | INFO | SARS-CoV2 - COVID: 1252 images
+2025-10-29 15:00:56,528 | INFO | SARS-CoV2 - non-COVID: 1229 images
+2025-10-29 15:00:58,615 | INFO | \u2705 Metadata saved for SARS-CoV2: data\preprocessed\SARS-CoV2\metadata.json
+2025-10-29 15:00:58,619 | WARNING | Processing returned None for SARS-CoV2 (check logs).
+2025-10-29 15:00:58,620 | INFO | --- Processing dataset (preprocess): COVIDx
+2025-10-29 15:00:58,650 | INFO | COVIDx - COVID: 2000 images
+2025-10-29 15:01:03,992 | INFO | COVIDx - PNEUMONIA: 2000 images
+2025-10-29 15:01:09,183 | INFO | COVIDx - NORMAL: 2000 images
+2025-10-29 15:01:15,248 | INFO | \u2705 Metadata saved for COVIDx: data\preprocessed\COVIDx\metadata.json
+2025-10-29 15:01:15,254 | WARNING | Processing returned None for COVIDx (check logs).
+2025-10-29 15:01:15,254 | INFO | --- Processing dataset (preprocess): COVID-CT-MD
+2025-10-29 15:01:15,325 | INFO | COVID-CT-MD - COVID: 7593 images
+2025-10-29 15:01:45,588 | INFO | COVID-CT-MD - CAP: 2618 images
+2025-10-29 15:02:01,262 | INFO | COVID-CT-MD - non-COVID: 6893 images
+2025-10-29 15:02:20,096 | INFO | \u2705 Metadata saved for COVID-CT-MD: data\preprocessed\COVID-CT-MD\metadata.json
+2025-10-29 15:02:20,099 | WARNING | Processing returned None for COVID-CT-MD (check logs).
+2025-10-29 15:02:20,100 | INFO | --- Generating dataset card and splits for: SARS-CoV2
+2025-10-29 15:02:20,100 | ERROR | Error calling <function generate_dataset_card at 0x000001E9C985D080>: generate_dataset_card() takes 0 positional arguments but 1 was given
+2025-10-29 15:02:20,101 | WARNING | generate_splits not found in generate_dataset_card.py
+2025-10-29 15:02:20,102 | INFO | --- Generating dataset card and splits for: COVIDx
+2025-10-29 15:02:20,103 | ERROR | Error calling <function generate_dataset_card at 0x000001E9C985D080>: generate_dataset_card() takes 0 positional arguments but 1 was given
+2025-10-29 15:02:20,105 | WARNING | generate_splits not found in generate_dataset_card.py
+2025-10-29 15:02:20,107 | INFO | --- Generating dataset card and splits for: COVID-CT-MD
+2025-10-29 15:02:20,107 | ERROR | Error calling <function generate_dataset_card at 0x000001E9C985D080>: generate_dataset_card() takes 0 positional arguments but 1 was given
+2025-10-29 15:02:20,111 | WARNING | generate_splits not found in generate_dataset_card.py
+2025-10-29 15:02:20,111 | INFO | \u2705 M1 automation finished. Check logs and reports/ directory.

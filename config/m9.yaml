@@ -1,0 +1,36 @@
+# config/m9.yaml (adapted to your repo layout)
+# NOTE: edit base_root if you moved the repo location.
+
+# If your repo root is "d:/xai-ct-project - Copy", set base_root accordingly
+base_root: "d:/xai-ct-project - Copy"
+
+# Model - prefer TorchScript (but script tries to fallback)
+model_path: ./outputs/m6/fusion_model.pt
+  # if absent, script will try outputs/checkpoints/best_model.pt
+
+# CAM source (adapted to your example)
+# Example: d:/xai-ct-project - Copy/outputs/m7/ct3d_dataset/attention_heatmaps
+cam_dir: ./outputs/m7/ct3d_dataset/attention_heatmaps
+
+# Volumes dir (one subfolder per study with volume.npy and slices/)
+# Example: d:/xai-ct-project - Copy/data/preprocessed_ct3d_flat
+volumes_dir: ./data/preprocessed_ct3d_flat
+
+# Masks dir (optional)
+masks_dir: ./data/masks
+
+# Output dir for M9
+out_dir: ./outputs/m9
+
+# Masking policy
+mask_mode: topk
+topk: 0.10
+threshold: null
+dilate: 3
+erode: 0
+
+# Device
+device: cuda
+
+# Insertion/deletion steps
+steps: 50

@@ -1,0 +1,28 @@
+#slice_classifier.yaml
+
+model:
+  name: resnet50
+  pretrained: true
+  num_classes: 2
+
+data:
+  dataset_roots:
+    - data/preprocessed/COVIDx
+    - data/preprocessed/SARS-CoV2
+    - data/preprocessed/COVID-CT-MD
+  img_size: 224
+  batch_size: 16
+  num_workers: 4
+
+train:
+  epochs: 10
+  lr: 1.0e-4
+  loss: cross_entropy
+  label_smoothing: 0.05
+  optimizer: adamw
+  scheduler: cosine
+
+output:
+  embeddings_dir: outputs/embeddings
+  checkpoints_dir: outputs/checkpoints
+  logs_dir: outputs/logs

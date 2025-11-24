@@ -1,0 +1,21 @@
+d:/xai-ct-project - Copy/scripts/
+├── data_preprocessing.py
+├── extract_attention.py
+├── extract_embeddings.py
+├── gradcam_check.py
+├── loco_split.py
+├── m5/
+│   ├── dataset_loader_3d.py
+│   └── __pycache__/
+│       └── dataset_loader_3d.cpython-311.pyc
+├── prepare_mil_data.py
+├── preprocess.py
+├── slice_dataset.py
+├── train_mil.py
+└── __pycache__/
+    ├── dataset_loader.cpython-311.pyc
+    ├── dataset_loader.cpython-312.pyc
+    ├── data_preprocessing.cpython-311.pyc
+    ├── generate_dataset_card.cpython-311.pyc
+    ├── prepare_mil_data.cpython-311.pyc
+    └── slice_dataset.cpython-311.pyc

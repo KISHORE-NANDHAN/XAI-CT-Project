@@ -1,0 +1,49 @@
+d:/xai-ct-project - Copy/data/preprocessed/
+├── COVID-CT-MD/
+│   ├── CAP/
+│   │   ├── cap006_10.png
+│   │   ......
+│   ├── COVID/
+│   │   ├── 13_Bjorke_1.png
+│   │   ├──.........
+│   ├── metadata.json
+│   ├── non-COVID/
+│   │   ├── 16_Morozov_study_0001_12.png
+│   │   ├── .......
+│   ├── test_manifest.json
+│   ├── train_manifest.json
+│   └── val_manifest.json
+├── COVID-CT-MD_CAP_volume.nii.npy
+├── COVID-CT-MD_COVID_volume.nii.npy
+├── COVID-CT-MD_non-COVID_volume.nii.npy
+├── COVIDx/
+│   ├── COVID/
+│   │   ├── 137covid_patient103_SR_2_IM00037.png
+│   │   ├── .........
+│   ├── metadata.json
+│   ├── NORMAL/
+│   │   ├── cdnormal4_patient149_SR_2_IM00039.png
+│   │   ├── .....
+│   ├── PNEUMONIA/
+│   │   ├── COVIDCTMD-cap001-IM0092.png
+│   │   ├──........
+│   ├── test_manifest.json
+│   ├── train_manifest.json
+│   └── val_manifest.json
+├── COVIDx_COVID_volume.nii.npy
+├── COVIDx_NORMAL_volume.nii.npy
+├── COVIDx_PNEUMONIA_volume.nii.npy
+├── SARS-CoV2/
+│   ├── COVID/
+│   │   ├── Covid (1).png
+│   │   ├── Covid (10).png
+│   │   ├── ..........
+│   ├── metadata.json
+│   ├── non-COVID/
+│   │   ├── Non-Covid (1).png
+│   │   ├── Non-Covid (10).presenting.....
+│   ├── test_manifest.json
+│   ├── train_manifest.json
+│   └── val_manifest.json
+├── SARS-CoV2_COVID_volume.nii.npy
+└── SARS-CoV2_non-COVID_volume.nii.npy

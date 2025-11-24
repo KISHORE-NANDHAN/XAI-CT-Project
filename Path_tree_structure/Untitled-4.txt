@@ -1,0 +1,9 @@
+d:/xai-ct-project - Copy/models/
+├── mil_transformer.py
+├── resnet2d.py
+├── resnet3d.py
+├── slice_model.py
+└── __pycache__/
+    ├── mil_transformer.cpython-311.pyc
+    ├── resnet3d.cpython-311.pyc
+    └── slice_model.cpython-311.pyc

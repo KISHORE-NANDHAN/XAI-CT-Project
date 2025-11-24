@@ -1,0 +1,63 @@
+d:/xai-ct-project - Copy/outputs/m4/
+├── attention_heatmaps/
+│   ├── CAP/
+│   │   ├── cap006_10_overlay.png
+│   │   ├── cap006_11_overlay.png
+│   │   ├── cap006_17_overlay.png
+│   │   ├── cap006_18_overlay.png
+│   │   └── cap008_108_overlay.png
+│   ├── COVID/
+│   │   ├── 13_Bjorke_100_overlay.png
+│   │   ├── 13_Bjorke_10_overlay.png
+│   │   ├── 13_Bjorke_11_overlay.png
+│   │   ├── 13_Bjorke_12_overlay.png
+│   │   ├── 13_Bjorke_13_overlay.png
+│   │   ├── 13_Bjorke_14_overlay.png
+│   │   ├── 13_Bjorke_15_overlay.png
+│   │   ├── 13_Bjorke_1_overlay.png
+│   │   └── 13_Bjorke_24_overlay.png
+│   ├── non-COVID/
+│   │   ├── 16_Morozov_study_0001_12_overlay.png
+│   │   ├── 16_Morozov_study_0001_13_overlay.png
+│   │   ├── 16_Morozov_study_0001_14_overlay.png
+│   │   ├── 16_Morozov_study_0001_15_overlay.png
+│   │   ├── 16_Morozov_study_0001_17_overlay.png
+│   │   └── 16_Morozov_study_0001_18_overlay.png
+│   ├── NORMAL/
+│   │   ├── cdnormal4_patient149_SR_2_IM00039_overlay.png
+│   │   ├── cdunnormal_patient151_SR_2_IM00015_overlay.png
+│   │   ├── cdunnormal_patient154_SR_2_IM00035_overlay.png
+│   │   ├── COVIDCTMD-normal047-IM0079_overlay.png
+│   │   └── COVIDCTMD-normal047-IM0094_overlay.png
+│   └── PNEUMONIA/
+│       ├── COVIDCTMD-cap001-IM0092_overlay.png
+│       ├── COVIDCTMD-cap005-IM0041_overlay.png
+│       ├── COVIDCTMD-cap005-IM0071_overlay.png
+│       ├── COVIDCTMD-cap005-IM0097_overlay.png
+│       └── COVIDCTMD-cap007-IM0069_overlay.png
+├── attention_vis/
+│   ├── CAP_topk.png
+│   ├── COVID_topk.png
+│   ├── non-COVID_topk.png
+│   ├── NORMAL_topk.png
+│   └── PNEUMONIA_topk.png
+├── checkpoints/
+│   ├── best_model.pt
+│   ├── epoch_10.pt
+│   ├── epoch_12.pt
+│   ├── epoch_14.pt
+│   ├── epoch_16.pt
+│   ├── epoch_18.pt
+│   ├── epoch_2.pt
+│   ├── epoch_20.pt
+│   ├── epoch_22.pt
+│   ├── epoch_24.pt
+│   ├── epoch_26.pt
+│   ├── epoch_28.pt
+│   ├── epoch_30.pt
+│   ├── epoch_4.pt
+│   ├── epoch_6.pt
+│   └── epoch_8.pt
+└── logs/
+    ├── attention_results.json
+    └── mil_train_log.json
