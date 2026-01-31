@@ -10,14 +10,19 @@
 
 import os
 import argparse
+import sys
 import yaml
 import json
 from pathlib import Path
+
+# Enforce UTF-8 output for Windows consoles
+sys.stdout.reconfigure(encoding='utf-8')
+
 from tqdm import tqdm
 import numpy as np
 import torch
 import torch.nn.functional as F
-from sklearn.metrics import roc_auc_score, accuracy_score, confusion_matrix, roc_curve, auc
+from sklearn.metrics import roc_auc_score, accuracy_score, confusion_matrix, roc_curve, auc, classification_report
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -140,7 +145,7 @@ def main():
     _, _, test_loader = get_3d_dataloaders(
         data_dir=cfg["data"]["data_dir"],
         batch_size=cfg["evaluation"].get("batch_size", 2),
-        num_workers=cfg["evaluation"].get("num_workers", 4),
+        num_workers=0, # Force 0 workers on Windows
     )
 
     # Build and load model
@@ -164,8 +169,19 @@ def main():
     print("✅ Saved predictions:", preds_path)
 
     # Compute metrics
+    y_pred = probs.argmax(axis=1)
+    
+    print("\n" + "="*40)
+    print("📊 3D MODEL TEST RESULTS")
+    print("="*40)
+    print("\n🔹 Classification Report:")
+    print(classification_report(labels, y_pred, target_names=[f"Class {i}" for i in range(num_classes)]))
+
+    print("\n🔹 Confusion Matrix:")
+    print(confusion_matrix(labels, y_pred))
+
     metrics = multiclass_metrics(labels, probs, num_classes)
-    print(f"Test ACC: {metrics['acc']:.4f} | Test AUC (macro): {metrics['auc_macro']}")
+    print(f"\nTest ACC: {metrics['acc']:.4f} | Test AUC (macro): {metrics['auc_macro']}")
     for i, auc_k in enumerate(metrics["per_class_auc"]):
         if auc_k is not None:
             print(f"  Class {i} AUC: {auc_k:.4f}")
